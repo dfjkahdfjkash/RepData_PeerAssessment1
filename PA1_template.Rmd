@@ -81,14 +81,17 @@ The strategy does not need to be sophisticated. For example, you could use
 the mean/median for that day, or the mean for that 5-minute interval, etc.
 ```{r filling in all of the missing values, echo=TRUE}
 temp <- activity
-temp[is.na(activity),1] <- mean(temp[,1], na.rm = TRUE)
+temp <- merge(temp, average_steps_a_day, by = "interval")
+temp[is.na(temp[,2]),2] <- temp[is.na(temp[,2]),4]
 head(temp)
 ```
 
 3. Create a new dataset that is equal to the original dataset
 but with the missing data filled in.
 ```{r missing values filled dataset, echo=TRUE}
-filled_activity <- temp
+filled_activity <- temp[,c(2,3,1)]
+colnames(filled_activity) <- c("steps", "date", "interval")
+head(filled_activity)
 ```
 
 4. Make a histogram of the total number of steps taken each day and 

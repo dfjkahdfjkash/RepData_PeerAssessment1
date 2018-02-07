@@ -127,25 +127,38 @@ the mean/median for that day, or the mean for that 5-minute interval, etc.
 
 ```r
 temp <- activity
-temp[is.na(activity),1] <- mean(temp[,1], na.rm = TRUE)
+temp <- merge(temp, average_steps_a_day, by = "interval")
+temp[is.na(temp[,2]),2] <- temp[is.na(temp[,2]),4]
 head(temp)
 ```
 
 ```
-##     steps       date interval
-## 1 37.3826 2012-10-01        0
-## 2 37.3826 2012-10-01        5
-## 3 37.3826 2012-10-01       10
-## 4 37.3826 2012-10-01       15
-## 5 37.3826 2012-10-01       20
-## 6 37.3826 2012-10-01       25
+##   interval  steps.x       date  steps.y
+## 1        0 1.716981 2012-10-01 1.716981
+## 2        0 0.000000 2012-11-23 1.716981
+## 3        0 0.000000 2012-10-28 1.716981
+## 4        0 0.000000 2012-11-06 1.716981
+## 5        0 0.000000 2012-11-24 1.716981
+## 6        0 0.000000 2012-11-15 1.716981
 ```
 
 3. Create a new dataset that is equal to the original dataset
 but with the missing data filled in.
 
 ```r
-filled_activity <- temp
+filled_activity <- temp[,c(2,3,1)]
+colnames(filled_activity) <- c("steps", "date", "interval")
+head(filled_activity)
+```
+
+```
+##      steps       date interval
+## 1 1.716981 2012-10-01        0
+## 2 0.000000 2012-11-23        0
+## 3 0.000000 2012-10-28        0
+## 4 0.000000 2012-11-06        0
+## 5 0.000000 2012-11-24        0
+## 6 0.000000 2012-11-15        0
 ```
 
 4. Make a histogram of the total number of steps taken each day and 

@@ -205,19 +205,29 @@ plot(average_steps_a_day[,1],
 <li>Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.</li>
 </ol>
 <pre class="r"><code>temp &lt;- activity
-temp[is.na(activity),1] &lt;- mean(temp[,1], na.rm = TRUE)
+temp &lt;- merge(temp, average_steps_a_day, by = &quot;interval&quot;)
+temp[is.na(temp[,2]),2] &lt;- temp[is.na(temp[,2]),4]
 head(temp)</code></pre>
-<pre><code>##     steps       date interval
-## 1 37.3826 2012-10-01        0
-## 2 37.3826 2012-10-01        5
-## 3 37.3826 2012-10-01       10
-## 4 37.3826 2012-10-01       15
-## 5 37.3826 2012-10-01       20
-## 6 37.3826 2012-10-01       25</code></pre>
+<pre><code>##   interval  steps.x       date  steps.y
+## 1        0 1.716981 2012-10-01 1.716981
+## 2        0 0.000000 2012-11-23 1.716981
+## 3        0 0.000000 2012-10-28 1.716981
+## 4        0 0.000000 2012-11-06 1.716981
+## 5        0 0.000000 2012-11-24 1.716981
+## 6        0 0.000000 2012-11-15 1.716981</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Create a new dataset that is equal to the original dataset but with the missing data filled in.</li>
 </ol>
-<pre class="r"><code>filled_activity &lt;- temp</code></pre>
+<pre class="r"><code>filled_activity &lt;- temp[,c(2,3,1)]
+colnames(filled_activity) &lt;- c(&quot;steps&quot;, &quot;date&quot;, &quot;interval&quot;)
+head(filled_activity)</code></pre>
+<pre><code>##      steps       date interval
+## 1 1.716981 2012-10-01        0
+## 2 0.000000 2012-11-23        0
+## 3 0.000000 2012-10-28        0
+## 4 0.000000 2012-11-06        0
+## 5 0.000000 2012-11-24        0
+## 6 0.000000 2012-11-15        0</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?</li>
 </ol>
