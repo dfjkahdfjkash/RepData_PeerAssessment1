@@ -1,3 +1,5 @@
+Note: Because markdown file didn't show the figuers on githup, I upload the three files twice.
+
 ## Introduction
 
 It is now possible to collect a large amount of data about personal

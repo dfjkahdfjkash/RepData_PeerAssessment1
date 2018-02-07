@@ -142,7 +142,7 @@ head(temp)
 ```
 
 3. Create a new dataset that is equal to the original dataset
-# but with the missing data filled in.
+but with the missing data filled in.
 
 ```r
 filled_activity <- temp
