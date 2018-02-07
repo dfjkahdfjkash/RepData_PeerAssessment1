@@ -58,7 +58,7 @@ qplot(total_steps_per_day[,2],
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/histogram of total steps per day-1.png)<!-- -->
+![](PA1_template_files/figure-html/histogram_of_total_steps_per_day-1.png)<!-- -->
 
 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -96,7 +96,7 @@ plot(average_steps_a_day[,1],
      ylab = "steps")
 ```
 
-![](PA1_template_files/figure-html/time series plot of average steps a day-1.png)<!-- -->
+![](PA1_template_files/figure-html/time_series_plot_of_average_steps_a_day-1.png)<!-- -->
 
 2. Which 5-minute interval, on average across all the days in the dataset, 
 contains the maximum number of steps?
@@ -170,7 +170,7 @@ qplot(total_steps_per_day[,2],
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/plot mean and median of filled dataset-1.png)<!-- -->
+![](PA1_template_files/figure-html/plot_mean_and_median_of_filled_dataset-1.png)<!-- -->
 
 ```r
 qplot(filled_total_steps_per_day[,2], 
@@ -183,7 +183,7 @@ qplot(filled_total_steps_per_day[,2],
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](PA1_template_files/figure-html/plot mean and median of filled dataset-2.png)<!-- -->
+![](PA1_template_files/figure-html/plot_mean_and_median_of_filled_dataset-2.png)<!-- -->
 
 ```r
 mean(filled_total_steps_per_day[,2])
@@ -242,4 +242,4 @@ xyplot(steps~interval | weekday,
        all weekday days or weekend days ")
 ```
 
-![](PA1_template_files/figure-html/panel plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/panel_plot-1.png)<!-- -->

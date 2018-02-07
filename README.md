@@ -1,4 +1,4 @@
-Note: Because markdown file didn't show the figuers on githup, I upload the three files twice.
+Note: Because markdown file didn't show the figuers on github, I upload the three files twice.
 
 ## Introduction
 

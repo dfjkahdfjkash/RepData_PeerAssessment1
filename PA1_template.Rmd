@@ -33,7 +33,7 @@ head(total_steps_per_day)
 ```
 
 2. Make a histogram of the total number of steps taken each day
-```{r histogram of total steps per day, echo=TRUE}
+```{r histogram_of_total_steps_per_day, echo=TRUE}
 qplot(total_steps_per_day[,2], 
       geom = "histogram",
       main = "Histogram of total number of steps taken each day",
@@ -49,7 +49,7 @@ median(total_steps_per_day[,2])
 ## What is the average daily activity pattern?
 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and 
 the average number of steps taken, averaged across all days 
-```{r time series plot of average steps a day, echo=TRUE}
+```{r time_series_plot_of_average_steps_a_day, echo=TRUE}
 average_steps_a_day <- activity %>% 
   group_by(interval) %>%
   summarise(steps = mean(steps, na.rm = TRUE)) %>%
@@ -96,7 +96,7 @@ Calculate and report the mean and median total number of steps taken
 per day. Do these values differ from the estimates from the first part 
 of the assignment? What is the impact of imputing missing data on 
 the estimates of the total daily number of steps?
-```{r plot mean and median of filled dataset, echo=TRUE}
+```{r plot_mean_and_median_of_filled_dataset, echo=TRUE}
 filled_total_steps_per_day <- filled_activity[,c(1,2)] %>% 
   group_by(date) %>%
   summarise(steps = sum(steps)) %>%
@@ -131,7 +131,7 @@ head(weekday_activity)
 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 
 5-minute interval (x-axis) and the average number of steps taken, averaged
 across all weekday days or weekend days (y-axis). 
-```{r panel plot, echo=TRUE}
+```{r panel_plot, echo=TRUE}
 weekday_average_steps_a_day <- weekday_activity %>% 
   group_by(interval, weekday) %>%
   summarise(steps = mean(steps, na.rm = TRUE)) %>%
